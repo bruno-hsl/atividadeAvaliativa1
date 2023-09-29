@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 
 int main() {
     int codigo, numVeiculos, numAcidentes;
@@ -10,7 +10,7 @@ int main() {
     int cidades_rs = 0;
     float mediaAcidentes_rs, media_veiculos, totalAcidentes_rs = 0;
 
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 2; i++) {
         
         printf("Cidade %d:\n", i + 1);
         printf("Codigo da cidade: ");
@@ -28,6 +28,10 @@ int main() {
         if(estado == "rs"){
             totalAcidentes_rs += numAcidentes;
             cidades_rs++;
+            mediaAcidentes_rs = (float)totalAcidentes_rs / cidades_rs;  
+        }
+        else{
+            printf("0 cidades no RS");
         }
         
 
@@ -44,7 +48,7 @@ int main() {
      media_veiculos = (float)totalVeiculos / 200;
 
     
-     mediaAcidentes_rs = totalAcidentes_rs / cidades_rs;
+    
 
     printf("\nResultados:\n");
     printf("Maior indice de acidentes: %d (Cidade: %d) (Estado: %s)\n", maiorAcidente, codigo, estado);
