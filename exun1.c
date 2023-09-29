@@ -2,12 +2,16 @@
 #include <math.h>
 
 int main(){
-    int x = 5, f;
+    float x = 5, f;
 
-    f = (5 * x + 3) / (int)sqrt(x * x) - 16;
+printf("Valor de x: ");
+scanf("%f", & x);
 
-    printf("%d", f);
+    f = ((5 * x) + 3) / (int)sqrt(x * x - 16);
+
+    printf("%f", f);
 
     return 0;
 }
+
 
