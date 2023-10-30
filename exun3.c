@@ -11,7 +11,7 @@ int main() {
     scanf("%f", &C);
 
     
-    if (A == B  && B == C) {
+    if (A + B > C && A + C > B && B + C > A) {
         if (A == B && B == C) {
             printf("E um triangulo equilatero.\n");
         } else if (A == B || A == C || B == C) {
