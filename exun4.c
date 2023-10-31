@@ -30,14 +30,14 @@ int main() {
         }
 
         if (maiorLado * maiorLado == lado1 * lado1 + lado2 * lado2) {
-            printf("É um triângulo retângulo.\n");
+            printf("É um triangulo retangulo.\n");
         } else if (maiorLado * maiorLado > lado1 * lado1 + lado2 * lado2) {
-            printf("É um triângulo obtusângulo.\n");
+            printf("É um triangulo obtusangulo.\n");
         } else {
-            printf("É um triângulo acutângulo.\n");
+            printf("É um triangulo acutangulo.\n");
         }
     } else {
-        printf("Esses valores não formam um triângulo.\n");
+        printf("Esses valores não formam um triangulo.\n");
     }
 
     return 0;
