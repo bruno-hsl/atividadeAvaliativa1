@@ -8,6 +8,8 @@ int main() {
     printf("Digite a coordenada do ponto (y): ");
     scanf("%f", &y);
 
+    if(x < 9 && x > - 9 && y < 9 && y > -9){
+
     if (x == 0 && y == 0) {
         printf("Origem\n");
     } else if (x == 0) {
@@ -22,6 +24,9 @@ int main() {
         printf("Quadrante 3\n");
     } else {
         printf("Quadrante 4\n");
+    }
+    }else{
+        printf("numero com mais de 1 digito");
     }
 
     return 0;
