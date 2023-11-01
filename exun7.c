@@ -31,7 +31,7 @@ int main() {
     
     mediaGeral /= numAlunos;
 
-    printf("\nMédia geral da turma: %.2f\n", mediaGeral);
+    printf("\nMedia geral da turma: %.2f\n", mediaGeral);
 
     return 0;
 }
