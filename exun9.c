@@ -8,6 +8,7 @@ int main() {
     printf("Informe o seu voto (1, 2, 3, 4 para candidatos, 5 para voto nulo, 6 para voto em branco, ou 0 para encerrar): ");
 
     while (1) {
+        printf("\nvoto: ");
         scanf("%d", &voto);
 
         if (voto == 0) {
@@ -29,7 +30,7 @@ int main() {
         }
     }
 
-    printf("Resultado da votação:\n");
+    printf("Resultado da votacao:\n");
     printf("Candidato 1: %d votos\n", candidato1);
     printf("Candidato 2: %d votos\n", candidato2);
     printf("Candidato 3: %d votos\n", candidato3);
