@@ -7,7 +7,7 @@ int main() {
 
     do {
        
-        printf("Digite o salário (ou um valor negativo para encerrar): ");
+        printf("Digite o salario: ");
         scanf("%f", &salario);
 
         if (salario >= 0) {
@@ -16,7 +16,7 @@ int main() {
                 pessoasComSalarioAte100++;
             }
 
-            printf("Digite o número de filhos: ");
+            printf("Digite o numero de filhos: ");
             scanf("%d", &numeroFilhos);
 
             
@@ -30,6 +30,7 @@ int main() {
 
             totalPessoas++;
         }
+        printf("\n");
     } while (salario >= 0);
 
     if (totalPessoas > 0) {
@@ -39,10 +40,10 @@ int main() {
 
         float percentualSalarioAte100 = (float)pessoasComSalarioAte100 / totalPessoas * 100;
 
-        printf("a) Média do salário da população: %.2f\n", mediaSalario);
-        printf("b) Média do número de filhos: %.2f\n", mediaNumeroFilhos);
-        printf("c) Maior salário: %.2f\n", maiorSalario);
-        printf("d) Percentual de pessoas com salário até R$100,00: %.2f%%\n", percentualSalarioAte100);
+        printf("a) Media do salario da populacao: %.2f\n", mediaSalario);
+        printf("b) Media do namero de filhos: %.2f\n", mediaNumeroFilhos);
+        printf("c) Maior salario: %.2f\n", maiorSalario);
+        printf("d) Percentual de pessoas com salario ata R$100,00: %.2f%%\n", percentualSalarioAte100);
     } else {
         printf("Nenhum dado foi inserido.\n");
     }
