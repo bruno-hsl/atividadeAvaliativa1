@@ -47,7 +47,7 @@ int main(){
         }
     }
 
-    mediaVeiculos = (float)totalVeiculos / 2;
+    mediaVeiculos = (float)totalVeiculos / 200;
     mediaRS = (float)totalRS / cidadesRS;
 
    
