@@ -1,56 +1,61 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
-    int codigo, numVeiculos, numAcidentes;
-    char estado[3];
-    char cidadeMaiorAcidente[50], cidadeMenorAcidente[50];
-    int maiorAcidente = -1, menorAcidente = -1;
+int main(){
+    int codigo[200], codigoMenor = 0;
+    int numVeiculos[200], codigoMaior = 0;
+    int numAcidentes[200];
+    char estado[200][3];
+
+    int menorAcidente = 0, maiorAcidente = 0;
     int totalVeiculos = 0;
-    int cidades_rs = 0;
-    float mediaAcidentes_rs = 0, media_veiculos = 0, totalAcidentes_rs = 0;
+    float mediaVeiculos, mediaRS;
+    int totalRS = 0, cidadesRS = 0;
 
-    for (int i = 0; i < 200; i++) {
-        printf("Cidade %d:\n", i + 1);
+    for(int i = 0; i < 200; i++){
         printf("Codigo da cidade: ");
-        scanf("%d", &codigo);
-        printf("Estado (sigla): ");
-        scanf("%s", estado);
-        printf("Numero de veiculos de passeio (em 1992): ");
-        scanf("%d", &numVeiculos);
-        printf("Numero de acidentes de transito com vitimas (em 1992): ");
-        scanf("%d", &numAcidentes);
+        scanf("%d", &codigo[i]);
 
-        totalVeiculos += numVeiculos;
+        printf("Estado: ");
+        scanf("%s", &estado[i]);
 
-        if (strcmp(estado, "rs") == 0) {
-            totalAcidentes_rs += numAcidentes;
-            cidades_rs++;
+        printf("Numero de veiculos em 1992: ");
+        scanf("%d", &numVeiculos[i]);
+
+        printf("Numero de acidentes em 1992: ");
+        scanf("%d", &numAcidentes[i]);
+    }
+
+    menorAcidente = numAcidentes[0];
+    maiorAcidente = numAcidentes[0];
+
+    for(int i = 0; i < 200; i++){
+        if(numAcidentes[i] <= menorAcidente){
+            menorAcidente = numAcidentes[i];
+            codigoMenor = codigo[i];
         }
 
-        if (maiorAcidente == -1 || numAcidentes > maiorAcidente) {
-            maiorAcidente = numAcidentes;
-            strcpy(cidadeMaiorAcidente, "Cidade"); 
+        if(numAcidentes[i] >= maiorAcidente){
+            maiorAcidente = numAcidentes[i];
+            codigoMaior = codigo[i];
         }
-        if (menorAcidente == -1 || numAcidentes < menorAcidente) {
-            menorAcidente = numAcidentes;
-            strcpy(cidadeMenorAcidente, "Cidade"); 
+        totalVeiculos += numVeiculos[i];
+        
+        if(strcmp(estado[i], "RS") == 0 || strcmp(estado[i], "rs") == 0){
+            totalRS += numAcidentes[i];
+            cidadesRS ++;
         }
     }
 
-    media_veiculos = (float)totalVeiculos / 2; 
+    mediaVeiculos = (float)totalVeiculos / 2;
+    mediaRS = (float)totalRS / cidadesRS;
 
-    if (cidades_rs > 0) {
-        mediaAcidentes_rs = (float)totalAcidentes_rs / cidades_rs;
-    } else {
-        printf("0 cidades no RS\n");
-    }
+   
+    printf("Menor numero de acidentes [%d]. Cidade [%d]", menorAcidente, codigoMenor);
+    printf("\nMaior numero de acidentes [%d]. Cidade [%d]", maiorAcidente, codigoMaior);
+    printf("\nMedia de veiculos nas cidades brasileiras: %f", mediaVeiculos);
+    printf("\nMedia de acidentes nas ciades do RS %f", mediaRS);
 
-    printf("\nResultados:\n");
-    printf("Maior indice de acidentes: %d (%s: %d) (Estado: %s)\n", maiorAcidente, cidadeMaiorAcidente, codigo, estado);
-    printf("Menor indice de acidentes: %d (%s: %d) (Estado: %s)\n", menorAcidente, cidadeMenorAcidente, codigo, estado);
-    printf("Media de veiculos nas cidades brasileiras: %.2f\n", media_veiculos);
-    printf("Media de acidentes com vitimas no Rio Grande do Sul: %.2f\n", mediaAcidentes_rs);
 
     return 0;
 }
